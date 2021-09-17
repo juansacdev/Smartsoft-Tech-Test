@@ -1,0 +1,18 @@
+{
+	"type": "postgres",
+	"host": "localhost",
+	"port": 5432,
+	"username": "postgres",
+	"password": "postgres",
+	"database": "smartsoft",
+	"synchronize": false,
+	"retryDelay": 3000,
+	"retryAttempts": 10,
+	"logging": true,
+	"migrationsTableName": "migrations",
+	"entities": ["src/entities/**/*"],
+	"migrations": ["src/migrations/**/*.ts"],
+	"cli": {
+		"migrationsDir": "src/migrations"
+	}
+}
