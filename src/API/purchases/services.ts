@@ -17,6 +17,9 @@ interface ProductData {
 	quantity: number
 }
 
+// Why use statics?
+// Here should handle the business error like not found an entity and not in controller
+
 export class PurchaseServices {
 	static async getAll(userId?: ID): Promise<PurchaseType[]> {
 		let purchases: PurchaseEntity[]
@@ -67,6 +70,8 @@ export class PurchaseServices {
 
 		return purchase
 	}
+
+	// This function is hard for read and with high complexity
 
 	static async create(
 		userId: ID,

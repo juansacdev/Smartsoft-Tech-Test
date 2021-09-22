@@ -9,5 +9,6 @@ export async function isValidPassword(
 	rawPassword: string,
 	hashPassword: string,
 ): Promise<boolean> {
+	// here the await is unnecessary
 	return await bcryptjs.compare(rawPassword, hashPassword)
 }

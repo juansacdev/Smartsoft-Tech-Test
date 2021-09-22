@@ -4,6 +4,8 @@ import { RolesEntity } from '../entities/Role'
 
 export async function setInitalValues(connection: Connection): Promise<void> {
 	await connection.runMigrations()
+	// This could be an migration with data seed.
+	// Ref: https://sushilkbansal.medium.com/how-to-seed-typeorm-d9637a5948cc
 	const [{ count: countRoles }] = await getConnection()
 		.createQueryBuilder()
 		.select('COUNT(*)')

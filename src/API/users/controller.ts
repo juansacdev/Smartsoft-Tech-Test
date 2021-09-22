@@ -12,6 +12,7 @@ export class UserController {
 		const user = await UserServices.getOneById(id)
 
 		if (!user)
+			// Should use your middleware error
 			return res.status(404).json({
 				error: `User with the id ${id} doesn't exist`,
 				info: { id },
@@ -31,6 +32,7 @@ export class UserController {
 		const { id } = req.params
 		const userUpdated = await UserServices.updateOne(id, data)
 		if (!userUpdated)
+			// Should use your middleware error
 			return res.status(404).json({
 				error: `User with the id ${id} doesn't exist`,
 				info: { id },
@@ -51,6 +53,7 @@ export class UserController {
 		const { id } = req.params
 		const isUserDeleted = await UserServices.deleteOne(id)
 		if (!isUserDeleted)
+			// Should use your middleware error
 			return res.status(404).json({
 				error: `User with the id ${id} doesn't exist`,
 				info: { id },

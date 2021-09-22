@@ -16,11 +16,13 @@ export const logErrors = (
 	_res: resType,
 	next: nextType,
 ) => {
+	// Should avoid use console.log in prod and better implement an catch error system like Sentry
 	if (config.isDevEnv) console.log(err)
 	else console.log(err.message)
 	next(err)
 }
 
+// What is the reason for use underscore in some vars?
 export const wrapErrors = (
 	err,
 	_req: reqType,

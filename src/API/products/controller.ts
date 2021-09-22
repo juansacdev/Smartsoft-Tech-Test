@@ -11,6 +11,7 @@ export class ProducController {
 		const { id } = req.params
 		const product = await ProductServices.getOneById(id)
 		if (!product)
+			// Should use your middleware error
 			return res.status(404).json({
 				error: `Product with the id ${id} doesn't exist`,
 				info: { id },
@@ -29,6 +30,7 @@ export class ProducController {
 		const { id } = req.params
 		const prodUpdated = await ProductServices.updateOne(id, data)
 		if (!prodUpdated)
+			// Should use your middleware error
 			return res.status(404).json({
 				error: `Product with the id ${id} doesn't exist`,
 				info: { id },
@@ -40,6 +42,7 @@ export class ProducController {
 		const { id } = req.params
 		const isProdDeleted = await ProductServices.deleteOne(id)
 		if (!isProdDeleted)
+			// Should use your middleware error
 			return res.status(404).json({
 				error: `Product with the id ${id} doesn't exist`,
 				info: { id },

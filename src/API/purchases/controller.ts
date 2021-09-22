@@ -18,6 +18,7 @@ export class PurchaseController {
 
 		const purchase = await PurchServ.getOneById(id)
 		if (!purchase)
+			// Should use your middleware error
 			return res.status(404).json({
 				error: `Purchase with the id ${id} doesn't exist`,
 				info: { id },
@@ -31,6 +32,7 @@ export class PurchaseController {
 
 		const purchase = await PurchServ.getOneById(id, user?.sub)
 		if (!purchase)
+			// Should use your middleware error
 			return res.status(404).json({
 				error: `Purchase with the id ${id} doesn't exist`,
 				info: { id },
@@ -43,6 +45,7 @@ export class PurchaseController {
 		const purchCreated = await PurchServ.create(user?.sub, productsToBuy)
 
 		if (!purchCreated) {
+			// Should use your middleware error
 			return res
 				.status(400)
 				.json({ error: 'No enougth money for this operation' })
@@ -57,6 +60,7 @@ export class PurchaseController {
 
 		const purchUpdated = await PurchServ.update(purchaseId, data)
 		if (!purchUpdated)
+			// Should use your middleware error
 			return res.status(404).json({
 				error: `Purchase with the id ${purchaseId} doesn't exist`,
 				info: { purchaseId },
@@ -69,6 +73,7 @@ export class PurchaseController {
 
 		const isPurchDeleted = await PurchServ.deleteOne(purchaseId)
 		if (!isPurchDeleted)
+			// Should use your middleware error
 			return res.status(404).json({
 				error: `Purchase with the id ${purchaseId} doesn't exist`,
 				info: { purchaseId },

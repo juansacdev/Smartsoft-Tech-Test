@@ -9,6 +9,7 @@ const createToken = (user: UsersEntity): string => {
 		},
 		config.jwtSecret,
 		{
+			// Should be a environment var
 			expiresIn: 3600000,
 		},
 	)
