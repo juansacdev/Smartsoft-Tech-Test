@@ -5,10 +5,10 @@ export async function hashPassword(password: string): Promise<string> {
 	return bcryptjs.hash(password, salt)
 }
 
-export async function isValidPassword(
+export function isValidPassword(
 	rawPassword: string,
 	hashPassword: string,
 ): Promise<boolean> {
 	// here the await is unnecessary
-	return await bcryptjs.compare(rawPassword, hashPassword)
+	return bcryptjs.compare(rawPassword, hashPassword)
 }

@@ -2,7 +2,12 @@ import { reqType, resType } from '../../config/expressTypes'
 import { AuthServices } from './services'
 
 export class AuthController {
-	static async signUp(req: reqType, res: resType): Promise<resType> {
+	static async signUp(req: reqType, res: resType, next): Promise<resType> {
+		try {
+			
+		} catch (error) {
+			next(error);
+		}
 		// You could use a package for validate data like Joi or Class Validator and use an middleware with this purpose
 		const { body: userData } = req
 
