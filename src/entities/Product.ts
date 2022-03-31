@@ -32,6 +32,7 @@ export class ProductEntity extends BaseEntity {
 	@Column()
 	price: number
 
+	// Use camelCase, the naming should be quantityStock in JS and in quantity_stock in DB
 	@Column()
 	quantity_stock: number
 
@@ -39,5 +40,6 @@ export class ProductEntity extends BaseEntity {
 		() => PurchaseProductsEntity,
 		purchaseProduct => purchaseProduct.product,
 	)
+	// Use camelCase
 	purchases_products: PurchaseProductsEntity[]
 }

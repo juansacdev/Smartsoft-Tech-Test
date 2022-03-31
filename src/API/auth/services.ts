@@ -9,6 +9,8 @@ interface UserCredentials {
 	password: string
 }
 
+// Why use statics?
+// Here should handle the business error like not found an entity and not in controller 
 export class AuthServices {
 	static async findByEmail(email: string): Promise<UsersEntity | undefined> {
 		const userFound = await UsersEntity.findOne({ email })

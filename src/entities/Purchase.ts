@@ -32,6 +32,7 @@ export class PurchaseEntity extends BaseEntity {
 	})
 	user: UsersEntity
 
+	// Use camelCase
 	@OneToMany(
 		() => PurchaseProductsEntity,
 		purchaseProduct => purchaseProduct.purchase,

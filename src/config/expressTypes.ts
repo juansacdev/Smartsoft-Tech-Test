@@ -1,3 +1,7 @@
+// Why
+// For express types exists @types/express in your packages, could be handle with cast
+// For example: req.user as User;
+
 import express from 'express'
 
 export type reqType = express.Request

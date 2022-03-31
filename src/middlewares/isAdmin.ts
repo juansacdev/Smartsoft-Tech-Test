@@ -10,6 +10,7 @@ async function isAdmin(
 ): Promise<void> {
 	const { user } = req
 	try {
+		// Also is possible use JWT for valid permissions
 		const userFound = (await UsersEntity.findOne({
 			relations: ['role'],
 			where: { id: user?.sub },

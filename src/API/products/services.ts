@@ -7,6 +7,9 @@ interface ProductType {
 	quantity_stock: number
 }
 
+// Why use statics?
+// Here should handle the business error like not found an entity and not in controller
+
 export class ProductServices {
 	static async getAll(): Promise<ProductType[]> {
 		const products = await ProductEntity.find()

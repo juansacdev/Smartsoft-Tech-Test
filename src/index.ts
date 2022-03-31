@@ -33,7 +33,9 @@ createConnection()
 	.then(async (connection: Connection) => {
 		await setInitalValues(connection)
 		app.listen(config.port, () =>
+			// Should avoid console.log in prod
 			console.log(`I'm alive on: http://localhost:${config.port}`),
 		)
 	})
+	// Should avoid console.log in prod
 	.catch(e => console.log(e))
